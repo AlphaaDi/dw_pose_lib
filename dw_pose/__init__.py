@@ -97,6 +97,10 @@ class DWposeDetectorInference:
     def __init__(self, dir_path, device):
         self.dwprocessor = DWposeDetector(dir_path)
         self.dwprocessor.to(device)
+
+    def to(self, device):
+        self.dwprocessor.to(device)
+        return self
         
     def procces_np_image(self, img):
         with torch.no_grad():
